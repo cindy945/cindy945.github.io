@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://bit.webduino.io/blockly/live-preview.html#-Mm631RYmk5x9W8C-dIv -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Webduino Blockly Demo 02</title>
+  <script src="./index_files/jquery.min.js.下載"></script>
+  <script src="./index_files/webduino-all.min.js.下載"></script>
+  <script src="./index_files/MessageTransport.min.js.下載"></script>
+  <script src="./index_files/webduino-blockly.min.js.下載"></script>
+  <script src="./index_files/firebase.min.js.下載"></script>
+  <script src="./index_files/runtime.min.js.下載"></script><script src="./index_files/BitLedMatrix-blockly.js.下載"></script><script src="./index_files/BitLedMatrix.js.下載"></script>
+
+  <style>#demo-area-02-light img {
+  height: 200px;
+  display: none;
+  pointer-events: auto!important;
+}
+
+#demo-area-02-light.on #demo-area-02-on {
+  display: inline-block;
+  pointer-events: auto!important;
+}
+
+#demo-area-02-light.off #demo-area-02-off {
+  display: inline-block;
+  pointer-events: auto!important;
+}</style>
+</head>
+
+<body>
+  <div><div id="demo-area-02-light" class="off">
+    <img src="./index_files/off.jpg" id="demo-area-02-off">
+    <img src="./index_files/on.jpg" id="demo-area-02-on">
+  </div></div>
+
+  <script>var matrix;
+
+
+boardReady({board: 'Bit', device: '1234', transport: 'message', window: window.top.frames[0]}, function (board) {
+  board.samplingInterval = 250;
+  matrix = getMatrix(board, 4, 25);
+  document.getElementById("demo-area-02-light").addEventListener("click", function(){
+    if (document.getElementById("demo-area-02-light").className == "on") {
+       document.getElementById("demo-area-02-light").className = "off";
+    } else {
+      document.getElementById("demo-area-02-light").className = "on";
+    }
+    if (document.getElementById("demo-area-02-light").className == "on") {
+      matrix.setColor("00ff000001ff660002ffff000333ff330433ffff05ff000006ff660007ffff000833ff330933ffff0aff00000bff66000cffff000d33ff330e33ffff0fff000010ff660011ffff331233ff331333ffff14ff000015ff660016ffff331733ff331833ffff");
+    }
+    if (document.getElementById("demo-area-02-light").className == "off") {
+      matrix.setColor("0033ffff0133ff3302ffff3303ff660004ff00000533ffff0633ff3307ffff3308ff660009ff00000a33ffff0b33ff330cffff330dff66000eff00000f33ffff1033ff3311ffff3312ff660013ff00001433ffff1533ff3316ffff3317ff660018ff0000");
+    }
+  });
+});
+
+matrix.setColor('#33ffff');
+
+matrix.setColor('#9999ff');
+</script>
+
+
+</body></html>
